@@ -30,10 +30,28 @@ namespace scene {
       SceneManager();
       ~SceneManager() = default;
 
-      void addScene(const std::string& name, std::shared_ptr<scene::Scene> scene);
+      void addScene(std::shared_ptr<scene::Scene> scene);
       void removeScene(const std::string& name);
 
+      void setCurrentScene(const std::string& name);
       std::shared_ptr<scene::Scene> getScene(const std::string& name);
+      void loadScene(const std::string& name);
+
+      std::shared_ptr<scene::Scene> getCurrentScene() {
+        return getScene(_currentSceneName);
+      }
+
+      std::map<std::string, std::shared_ptr<scene::Scene>> getScenes() {
+        return _scenes;
+      }
+
+      std::vector<std::string> getSceneNames() {
+        std::vector<std::string> names;
+        for (const auto& pair : _scenes) {
+          names.push_back(pair.first);
+        }
+        return names;
+      }
     private:
       std::map<std::string, std::shared_ptr<scene::Scene>> _scenes;
       std::string _currentSceneName;
