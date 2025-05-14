@@ -21,3 +21,4 @@ add_subdirectory(
 
 add_executable(NoLife ${SOURCES})
 target_link_libraries(NoLife sfml-graphics sfml-window sfml-system sfml-audio config_loader logging)
+target_compile_options(NoLife PRIVATE -Wall -Wextra -Wpedantic -Werror -g3)
