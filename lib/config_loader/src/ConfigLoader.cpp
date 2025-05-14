@@ -1,4 +1,5 @@
 #include "ConfigLoader.hpp"
+#include <string>
 
 lib::ConfigLoader::ConfigLoader(const std::string& filepath) {
   loadFile(filepath);
@@ -72,5 +73,9 @@ std::vector<std::string> lib::ConfigLoader::getStringList(const std::string& key
     result.push_back(trim(value));
   }
   return result;
+}
+
+std::map<std::string, std::string> lib::ConfigLoader::getConfig() const {
+  return _config;
 }
 
