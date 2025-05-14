@@ -1,7 +1,10 @@
-#include <iostream>
+#include "scenes/SceneManager.hpp"
 
 int main(void)
 {
-  std::cout << "Hello World!" << std::endl;
+  scene::SceneManager sceneManager;
+
+  sceneManager.addScene("scene1", std::make_shared<scene::Scene>());
+  sceneManager.addScene("scene2", std::make_shared<scene::Scene>());
   return 0;
 }
