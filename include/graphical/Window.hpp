@@ -13,10 +13,11 @@
 
 #include "scenes/SceneManager.hpp"
 #include "ConfigLoader.hpp"
+#include "Logging.hpp"
 
-#define CONFIG_FOLDER "../config/"
 
 #define INVALID_CONFIG_FOLDER(name) "Config folder is invalid: " + name
+#define INVALID_SCENE_FILE(name) "Scene file is invalid: " + name
 
 namespace graphical {
   class Window {
@@ -34,6 +35,7 @@ namespace graphical {
       ~Window();
 
       void init();
+      void initScenes();
       void run();
       void processEvents();
       void update();
@@ -45,5 +47,8 @@ namespace graphical {
       unsigned int _height;
       std::shared_ptr<sf::RenderWindow> _window;
 
+      std::shared_ptr<scene::SceneManager> _sceneManager;
+      std::vector<std::string> _availableScenesConfigFile;
+      std::shared_ptr<lib::ConfigLoader> _configLoader;
   };
 }
