@@ -1,10 +1,9 @@
-#include "scenes/SceneManager.hpp"
+#include "graphical/Window.hpp"
 
 int main(void)
 {
-  scene::SceneManager sceneManager;
+  graphical::Window window("NoLife", 800, 600);
 
-  sceneManager.addScene("scene1", std::make_shared<scene::Scene>());
-  sceneManager.addScene("scene2", std::make_shared<scene::Scene>());
+  window.run();
   return 0;
 }
