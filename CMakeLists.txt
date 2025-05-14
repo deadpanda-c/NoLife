@@ -7,4 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 file(GLOB_RECURSE SOURCES src/*.cpp)
 include_directories(include)
 
+
 add_executable(NoLife ${SOURCES})
+target_link_libraries(NoLife sfml-graphics sfml-window sfml-system sfml-audio)
