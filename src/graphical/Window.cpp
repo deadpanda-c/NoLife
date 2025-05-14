@@ -12,8 +12,21 @@ graphical::Window::~Window()
 
 }
 
+void graphical::Window::loadConfig()
+{
+  // iterate through the config folder for .cfg files (CONFIG_FOLDER)
+  std::filesystem::path configPath = std::filesystem::current_path() / CONFIG_FOLDER;
+  if (!std::filesystem::exists(configPath))
+    throw WindowException(INVALID_CONFIG_FOLDER(configPath.string()));
+
+  for (const auto &entry : std::filesystem::directory_iterator(configPath)) {
+    std::cout << "Found config file: " << entry.path() << std::endl;
+  }
+}
+
 void graphical::Window::init()
 {
+  loadConfig();
 
 }
 
