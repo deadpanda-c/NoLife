@@ -5,7 +5,11 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 file(GLOB_RECURSE SOURCES src/*.cpp)
-include_directories(include)
+include_directories(
+  include
+  lib/config_loader/include
+  lib/logging/include
+)
 
 add_subdirectory(
   lib/config_loader
